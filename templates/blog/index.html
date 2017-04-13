@@ -4,11 +4,14 @@
 {% block main %}
   <div id="noted">
     <div class="container">
-      <div class="row centered">
-        {% for note in notes %}
-          <h1><a href="{% url 'index' item.id %}">{{ item.title }}</a></h1>
-          <p>Created: {{ item.created }} by {{ item.author }}</p>
-          <p>{{ item.text|linebreaksbr }}</p>
+      <h2>{{ title }} bitch</h2>
+      <div class="col-md-8">
+        {% for obj in object_list %}
+        <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
+          <br>
+          {{ obj.author }}
+          <br>
+          {{ obj.text }}
         {% endfor %}
       </div>
     </div>
