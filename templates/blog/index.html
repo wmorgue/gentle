@@ -1,0 +1,16 @@
+{% extends "gentle/base.html" %}
+{% load staticfiles %}
+{% block title %}Blog{% endblock %}
+{% block main %}
+  <div id="noted">
+    <div class="container">
+      <div class="row centered">
+        {% for note in notes %}
+          <h1><a href="{% url 'index' item.id %}">{{ item.title }}</a></h1>
+          <p>Created: {{ item.created }} by {{ item.author }}</p>
+          <p>{{ item.text|linebreaksbr }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
