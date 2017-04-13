@@ -1,3 +1,10 @@
+/*
+ Main css for home and about page's;
+*If style doesn't exist please check another .css
+*May bee you see more bootstrap.css ?
+*/
+
+/*Custom google font's*/
 @import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
 
 body {
@@ -45,6 +52,7 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
+
 
 .navbar {
   font-weight: 800;
@@ -98,7 +106,7 @@ hr {
 }
 
 #speak {
-  background: #e0e0e0;
+  background: #e1f7d5;
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -107,12 +115,20 @@ hr {
   font-size: 25px;
 }
 
+#speak h5 {
+  font-size: 20px;
+}
+
 .wr {
   padding-bottom: 40px;
 }
 
 .wr h4 {
   font-size: 25px;
+}
+
+.wr p {
+  font-size: 20px;
 }
 
 #futa {
@@ -132,5 +148,38 @@ hr {
 }
 
 #futa i:hover {
-  color: #ff7878;
+  color: white;
+}
+
+.abo {
+  padding-top: 10%;
+  padding-bottom: 70px;
+}
+
+.abo h2 {
+  font-size: 50px;
+}
+
+.abo h3 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#web {
+  background: #ffcd94;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#web h4 {
+  font-size: 35px;
+}
+
+#web p {
+  font-size: 20px;
+}
+
+#noted {
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
