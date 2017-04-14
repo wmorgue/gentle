@@ -1,6 +1,16 @@
 {% extends "gentle/base.html" %}
 {% load staticfiles %}
 {% block title %}{{ title }}{% endblock %}
+  {% if messages %}
+    {% for message in messages %}
+      <ul>
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+          {{ message }}
+        </li>
+      </ul>
+    {% endfor %}
+  {% endif %}
+
 {{ instance.title }}
 {{ instance.author }}
 {{ instance.text }}

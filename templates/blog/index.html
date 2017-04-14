@@ -4,14 +4,13 @@
 {% block main %}
   <div id="noted">
     <div class="container">
-      <h2>{{ title }} bitch</h2>
-      <div class="col-md-8">
+      <h2>{{ title }} of note</h2>
         {% for obj in object_list %}
-        <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
-          <br>
-          {{ obj.author }}
-          <br>
-          {{ obj.text }}
+          {% url 'detail' id=obj.id %}
+          <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a><br>
+          {{ obj.author }}<br>
+          {{ obj.title }}<br>
+          {{ obj.text }}<br>
         {% endfor %}
       </div>
     </div>
