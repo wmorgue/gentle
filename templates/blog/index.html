@@ -6,7 +6,7 @@
     <div class="container">
       <h2>{{ title }} of note</h2>
         {% for obj in object_list %}
-          {% url 'detail' id=obj.id %}
+          {% url 'blog:detail' id=obj.id %}
           <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a><br>
           {{ obj.author }}<br>
           {{ obj.title }}<br>
