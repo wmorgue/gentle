@@ -2,18 +2,23 @@
 {% load staticfiles %}
 {% block title %}Blog{% endblock %}
 {% block main %}
-  <div id="noted">
-    <div class="container">
-      <h2>{{ title }} bitch</h2>
-      <div class="col-md-8">
+    <div id="noted">
         {% for obj in object_list %}
-        <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
-          <br>
-          {{ obj.author }}
-          <br>
-          {{ obj.text }}
+            <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                    {{ obj.author }}
+                </li>
+                <li class="list-group-item">
+                    <i class="fa fa-music fa-fw" aria-hidden="true"></i>
+                    {{ obj.title }}
+                </li>
+                <li class="list-group-item">
+                    <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>
+                    {{ obj.text }}
+                </li>
+            </ul>
         {% endfor %}
-      </div>
     </div>
-  </div>
 {% endblock %}

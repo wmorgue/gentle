@@ -1,13 +1,10 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
-from django.utils import timezone
+from django.http import HttpResponseRedirect
 
 
 from .forms import PostForm
 from .models import Post
-
-
-def home(request):
-    return render(request, 'blog/home.html')
 
 
 def index(request):
@@ -21,17 +18,28 @@ def form_create(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-    context = {
-        "form": form,
-    }
+        messages.success(request, 'Successfully Created YO')
+        return HttpResponseRedirect(instance.get_absolute_url())
+    else:
+        messages.error(request, 'Not Created')
+    context = {"form": form}
     return render(request, 'blog/form_create.html', context)
 
 
 def detail(request, id=None):
-    instance = get_object_or_404(Post, id=id)
-    context = {'title': instance.title, 'instance': instance}
+    obj = get_object_or_404(Post, id=id)
+    context = {'obj': obj}
     return render(request, 'blog/detail.html', context)
 
 
-def about(request):
-    return render(request, 'blog/about.html')
+def update(request, id=None):
+    instance = get_object_or_404(Post, id=id)
+    form = PostForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        messages.success(request, 'Update Saved')
+        return HttpResponseRedirect(instance.get_absolute_url())
+
+    context = {'title': instance.title, 'instance': instance, 'form': form}
+    return render(request, 'blog/detail.html', context)

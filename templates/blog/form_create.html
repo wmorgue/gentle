@@ -1,14 +1,14 @@
 {% extends "gentle/base.html" %}
 {% load staticfiles %}
-{% block title %}Form{% endblock %}
+{% block title %}New Post{% endblock %}
 {% block main %}
   <div id="noted">
     <div class="container">
       <div class="row centered">
-      <form class="bttn" action="" method="POST">
+      <form class="" action="" method="POST">
+        {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" name="btn" value="Create new">
-            {% csrf_token %}
+            <input type="submit" value="Create new"/>
           </form>
         </div>
       </div>
