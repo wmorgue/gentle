@@ -1,19 +1,24 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{% url 'home' %}">Gentle Linux</a>
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gentle Linux</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-right navbar-nav">
+                {% with request.resolver_match as url_info %}
+                    <li {% ifequal url_info.view_name 'home' %} class="active" {% endifequal %}><a href="/">Home</a>
+                    </li>
+                    <li {% ifequal url_info.namespace 'blog' %} class="active" {% endifequal %}><a
+                            href="{% url 'blog:index' %}">Blog</a></li>
+                    <li {% ifequal url_info.view_name 'about' %} class="active" {% endifequal %} ><a
+                            href="{% url 'about' %}">About</a></li>
+                {% endwith %}
+            </ul>
+        </div>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-right navbar-nav">
-        <li class="active"><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'index' %}">Blog</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-      </ul>
-    </div>
-  </div>
 </div>
