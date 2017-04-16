@@ -15,3 +15,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:detail', kwargs={'id': self.id})
+
+    class Meta(object):
+        """docstring for Meta."""
+        ordering = ['-created', '-updated']
