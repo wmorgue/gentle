@@ -7,18 +7,18 @@
             <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                    <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                     {{ obj.author }}
                 </li>
                 <li class="list-group-item">
-                    <i class="fa fa-music fa-fw" aria-hidden="true"></i>
+                    <i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>
                     {{ obj.title }}
                 </li>
                 <li class="list-group-item">
-                    <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>
+                    <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
                     {{ obj.text }}
                 </li>
             </ul>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
