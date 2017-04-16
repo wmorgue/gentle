@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 
 
@@ -42,4 +42,11 @@ def update(request, id=None):
         return HttpResponseRedirect(instance.get_absolute_url())
 
     context = {'title': instance.title, 'instance': instance, 'form': form}
-    return render(request, 'blog/detail.html', context)
+    return render(request, 'blog/form_create.html', context)
+
+
+def delete(request, id=None):
+    instance = get_object_or_404(Post, id=id)
+    instance.delete()
+    messages.success(request, 'Successfully deleted')
+    return redirect('blog:index')
