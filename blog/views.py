@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 
@@ -8,8 +9,17 @@ from .models import Post
 
 
 def index(request):
-    queryset = Post.objects.all()
-    context = {'object_list': queryset, 'title': 'List'}
+    queryset_list = Post.objects.all()
+    paginator = Paginator(queryset_list, 5)
+    page_var = "p"
+    page = request.GET.get(page_var)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
+    context = {'page_var': page_var, 'object_list': queryset, 'title': 'List'}
     return render(request, 'blog/index.html', context)
 
 
