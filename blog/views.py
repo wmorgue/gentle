@@ -20,8 +20,6 @@ def form_create(request):
         instance.save()
         messages.success(request, 'Successfully Created YO')
         return HttpResponseRedirect(instance.get_absolute_url())
-    else:
-        messages.error(request, 'Not Created')
     context = {"form": form}
     return render(request, 'blog/form_create.html', context)
 
