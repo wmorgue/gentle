@@ -1,0 +1,38 @@
+{% extends "gentle/base.html" %}
+{% load staticfiles %}
+{% block title %}Blog{% endblock %}
+{% block main %}
+<div id="noted">
+  {% for obj in object_list %}
+      <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
+      <small>{{ obj.created }}</small>
+      <ul class="list-group">
+          <li class="list-group-item">
+              <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
+              {{ obj.author }}
+          </li>
+          <li class="list-group-item">
+              <i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>
+              {{ obj.title }}
+          </li>
+          <li class="list-group-item">
+              <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
+              {{ obj.text|truncatechars:100 }}
+          </li>
+      </ul>
+  {% endfor %}
+
+    <div class="pagination">
+      <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?{{ page_var }}={{ object_list.previous_page_number }}">Previous</a>
+        {% endif %}
+      <span class="current">Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+      </span>
+        {% if object_list.has_next %}
+            <a href="?{{ page_var }}={{ object_list.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+  </div>
+</div>
+{% endblock %}

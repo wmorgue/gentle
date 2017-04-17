@@ -1,0 +1,87 @@
+{% extends "gentle/base.html" %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block main %}
+  <div id="wrapper">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h1>Gentle Linux</h1>
+          <h2>High tech, low life</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container tnn">
+    <div class="row centered">
+      <br>
+      <div class="col-lg-4">
+        <i class="fa fa-linux"></i>
+        <h4>We love Linux</h4>
+        <p>Говорим на любые темы.
+          Осуждаем и обсуждаем различные дистрибутивы Линукс.
+          Arch,Gentoo,Debian,RedHat,OpenSUSE,
+          FreeBSD and MacOS.
+          Оказываем помощь другим участникам.
+          Системное администрирование и многое другое.
+        </p>Конструктивная критика приветствуется.
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-code"></i>
+        <h4>We love Coding</h4>
+        <p>Среди Линуксоидов встречается большое кол-во программистов.
+          Поиск союзников для проектов и использование системы контроля версий.
+        </p>Обсуждение языков программирования и фреймворков.
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-btc"></i>
+        <h4>We love Bitcoin</h4>
+        <p>Куда без современных криптовалют ?
+          Говорим о курсе биткоина, делаем прогнозы.
+        </p>Хочется поговорить о Etherium ? Добро пожаловать.
+      </div>
+    </div>
+    <br><br>
+  </div>
+  <div id="speak">
+    <div class="container">
+      <div class="row centered">
+        <h4>Freedom of speach:</h4>
+        <br>
+        <div class="col-lg-4">
+          <h5>Politics.</h5>
+          <p>Навальный - наш президент ?
+            Трампа в отставку ? Putin + Trump = Friend's ?
+            Считаете Навального посланником госдепа США ?
+            Make America Great Again ?
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h5>Escape from Russia.</h5>
+          <p>Загнивающий Запад ?
+            Не устраивает ситуация в городе или в России в целом ?
+          </p>Говорим об уровне жизни в России и Америке.
+        </div>
+        <div class="col-lg-4">
+          <h5>Immigration.</h5>
+          <p>Смотрим "Чиж New York" и "Koma Republic".
+            Говорим только о плюсах жизни за границей.
+          </p>Надоело терпеть режим России ? Вы по адресу.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container wr">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>Only actual new's from Elon Musk</h4>
+        <p>Talking about Linux distro, programming language, hardware and polics.</p>
+        <p>Indeed we like Tesla Car and Falcon 9.</p>
+        <br>
+          <img src="{% static "img/relax.jpg" %}" alt="New's" class="img-thumbnail">
+      </div>
+    </div>
+  </div>
+{% endblock %}

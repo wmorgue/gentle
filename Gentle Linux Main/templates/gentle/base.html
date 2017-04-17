@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} | Gentle Linux</title>
+    {% include "gentle/default.html" %}
+
+    <!-- HTML5 Shim IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+{% include "gentle/header.html" %}
+<div class="container">
+    {% block main %}{% endblock %}
+</div>
+{% include "gentle/footer.html" %}
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+</body>
+</html>

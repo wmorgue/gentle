@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Raleway");
+body {
+  background-color: #f2f2f2;
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 16px;
+  font-color: #555;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 70px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway";
+  font-weight: 300;
+  color: #333; }
+
+p {
+  line-height: 28px;
+  margin-bottom: 25px; }
+
+.centered {
+  text-align: center; }
+
+a {
+  color: #f85c37;
+  color: #7b7b7b;
+  text-decoration: none;
+  outline: 0; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0px;
+    border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+.navbar {
+  font-weight: 800;
+  size: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.navbar-inverse .navbar-nav > .active > a {
+  background-color: #d41c1c; }
+
+#wrapper {
+  background: url(../img/wrap.jpg) no-repeat center top;
+  margin-top: -5px;
+  padding-top: 30px;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 570px;
+  width: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+  #wrapper h1 {
+    color: white;
+    padding-top: 25%;
+    font-size: 60px;
+    font-weight: 300;
+    letter-spacing: 3px; }
+  #wrapper h2 {
+    font-size: 30px;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase; }
+
+.tnn {
+  padding-top: 20px; }
+  .tnn i, .tnn h4 {
+    font-size: 23px; }
+
+#speak {
+  background: #e1f7d5;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  #speak h4, #speak h5 {
+    font-size: 25px; }
+
+.wr {
+  padding-bottom: 40px; }
+  .wr h4 {
+    font-size: 25px; }
+  .wr p {
+    font-size: 20px; }
+
+#futa {
+  background: #2d2d2d;
+  padding-top: 30px;
+  padding-bottom: 20px; }
+  #futa h4 {
+    color: white; }
+  #futa i {
+    color: #bdbdbd;
+    font-size: 35px;
+    padding: 20px; }
+    #futa i:hover {
+      color: white; }
+
+.abo {
+  padding-top: 10%;
+  padding-bottom: 70px; }
+  .abo h2 {
+    font-size: 50px; }
+  .abo h3 {
+    letter-spacing: 2px;
+    text-transform: uppercase; }
+
+#web {
+  background: #ffcd94;
+  padding-top: 20px;
+  padding-bottom: 40px; }
+  #web h4 {
+    font-size: 35px; }
+  #web p {
+    font-size: 20px; }
+
+#noted {
+  padding-top: 100px;
+  padding-bottom: 50px; }
+
+/*# sourceMappingURL=main.css.map */
