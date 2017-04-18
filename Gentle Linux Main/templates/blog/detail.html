@@ -1,5 +1,6 @@
 {% extends "gentle/base.html" %}
 {% load staticfiles %}
+{% load urify %}
 {% block title %}{{ obj.title }}{% endblock %}
 {% if messages %}
 {% for message in messages %}
@@ -16,9 +17,9 @@
     {% if obj.image %}
       <img src="{{ obj.image.url }}" alt="{{ image.url }}" class="img-rounded">
     {% endif %}
-      <h3>{{ obj.title }}</h3><small>{{ obj.created }}</small>
+      <h3>{{ obj.title }}</h3><small>{{ obj.created|timesince }}</small>
       <div class="social">
-        <a href="https://twitter.com/home?status={{ share_string }}%20{{ ruquest.build_absolute_uri }}">Twitter</a>
+        <a href="https://twitter.com/home?status={{ obj.text|truncatechars:80|urify }}%20{{ ruquest.build_absolute_uri }}">Twitter</a>
       </div>
       <ul class="list-group">
           <li class="list-group-item">
