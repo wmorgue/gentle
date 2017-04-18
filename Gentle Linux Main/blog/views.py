@@ -1,3 +1,4 @@
+from urllib.parse import quote_plus
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
@@ -24,7 +25,7 @@ def index(request):
 
 
 def form_create(request):
-    form = PostForm(request.POST or None)
+    form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
@@ -36,7 +37,8 @@ def form_create(request):
 
 def detail(request, id=None):
     obj = get_object_or_404(Post, id=id)
-    context = {'obj': obj}
+    share_string = quote_plus(obj.text)
+    context = {'obj': obj, 'share_string': share_string}
     return render(request, 'blog/detail.html', context)
 
 
