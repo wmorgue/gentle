@@ -10,6 +10,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['created']
     list_editable = ['title']
     search_fields = ['title, text']
+    prepopulated_fields = {"slug": ("title",)}
 
     class Meta:
         model = Post
