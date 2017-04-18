@@ -9,4 +9,4 @@ class PostForm(forms.ModelForm):
     Добавляется во вьюху в виде функции и не только."""
     class Meta:
         model = Post
-        fields = ['author', 'title', 'image', 'text']
+        fields = ['author', 'title', 'image', 'text', 'draft', 'publish']

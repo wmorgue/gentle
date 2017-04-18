@@ -20,6 +20,7 @@ def index(request):
         queryset = paginator.page(1)
     except EmptyPage:
         queryset = paginator.page(paginator.num_pages)
+
     context = {'page_var': page_var, 'object_list': queryset, 'title': 'List'}
     return render(request, 'blog/index.html', context)
 
