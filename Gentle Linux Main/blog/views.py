@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
+from django.utils import timezone
 
 
 from .forms import PostForm
@@ -10,7 +11,7 @@ from .models import Post
 
 
 def index(request):
-    queryset_list = Post.objects.all()
+    queryset_list = Post.objects.__active__()
     paginator = Paginator(queryset_list, 5)
     page_var = "p"
     page = request.GET.get(page_var)

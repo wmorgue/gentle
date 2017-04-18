@@ -1,11 +1,18 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils import timezone
 # from django.db.models.signals import pre_save
 # from django.utils.text import slugify
 
 
 # def upload_location(instance, filename):
 #     return "%s/%s" %(instance.id, filename)
+
+class PostManager(models.Manager):
+    """Simple PostManager for publish__lte.
+    Look views def index for more detail."""
+    def __active__(self, *arg, **kwargs):
+        return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
 
 
 class Post(models.Model):
@@ -21,6 +28,8 @@ class Post(models.Model):
     publish = models.DateField(auto_now=False, auto_now_add=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
+    objects = PostManager()
+
 
     def __str__(self):
         return self.title
