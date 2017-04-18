@@ -5,7 +5,7 @@
 <div id="noted">
   {% for obj in object_list %}
       <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
-      <small>{{ obj.created }}</small>
+      <small>{{ obj.publish }}</small>
       <ul class="list-group">
           <li class="list-group-item">
               <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>

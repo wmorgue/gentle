@@ -17,7 +17,10 @@
     {% if obj.image %}
       <img src="{{ obj.image.url }}" alt="{{ image.url }}" class="img-rounded">
     {% endif %}
-      <h3>{{ obj.title }}</h3><small>{{ obj.created|timesince }}</small>
+      <h3>{{ obj.title }}</h3>
+      <small>{% if obj.draft %}
+        <span style="color:red;">Draft </span>{%endif%}{{ obj.publish }}
+      </small>
       <div class="social">
         <a href="https://twitter.com/home?status={{ obj.text|truncatechars:80|urify }}%20{{ ruquest.build_absolute_uri }}">Twitter</a>
       </div>
