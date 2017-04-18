@@ -13,7 +13,13 @@
 
 {% block main %}
   <div id="noted">
+    {% if obj.image %}
+      <img src="{{ obj.image.url }}" alt="{{ image.url }}" class="img-rounded">
+    {% endif %}
       <h3>{{ obj.title }}</h3><small>{{ obj.created }}</small>
+      <div class="social">
+        <a href="https://twitter.com/home?status={{ share_string }}%20{{ ruquest.build_absolute_uri }}">Twitter</a>
+      </div>
       <ul class="list-group">
           <li class="list-group-item">
               <i class="fa fa-user fa-fw" aria-hidden="true"></i>
