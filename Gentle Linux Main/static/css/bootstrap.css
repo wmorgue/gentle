@@ -4589,13 +4589,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
+  font-size: 20px;
   background-color: #3c4146;
   border-color: #202326;
 }
 .navbar-inverse .navbar-brand {
   color: #999;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 25px;
   letter-spacing: 2px;
 }
 .navbar-inverse .navbar-brand:hover,
