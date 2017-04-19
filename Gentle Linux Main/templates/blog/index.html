@@ -1,5 +1,5 @@
 {% extends "gentle/base.html" %}
-{% load staticfiles %}
+{% load static %}
 {% block title %}Blog{% endblock %}
 {% block main %}
 <div id="noted">
@@ -21,18 +21,17 @@
           </li>
       </ul>
   {% endfor %}
-
     <div class="pagination">
       <span class="step-links">
         {% if object_list.has_previous %}
-            <a href="?{{ page_var }}={{ object_list.previous_page_number }}">Previous</a>
+          <a href="?{{ page_var }}={{ object_list.previous_page_number }}">Previous</a>
         {% endif %}
-      <span class="current">Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
       </span>
+        <span class="current">Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
         {% if object_list.has_next %}
-            <a href="?{{ page_var }}={{ object_list.next_page_number }}">Next</a>
+          <a href="?{{ page_var }}={{ object_list.next_page_number }}">Next</a>
         {% endif %}
-    </span>
-  </div>
+        </span>
+    </div>
 </div>
 {% endblock %}

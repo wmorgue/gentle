@@ -1,17 +1,19 @@
 {% extends "gentle/base.html" %}
-{% load staticfiles %}
+{% load static %}
 {% block title %}New Post{% endblock %}
 {% block main %}
   <div id="noted">
     <div class="container">
       <div class="row centered">
-      <form class="" action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-          {{ form.as_p }}
+        <h2>Create new post here</h2>
+        <div class="form-wrapper">
+            <form class="" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
             <input type="submit" class="btn btn-default" value="Create new"/>
           </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 {% endblock %}
