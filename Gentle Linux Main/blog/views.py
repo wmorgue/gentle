@@ -1,8 +1,7 @@
 import urllib.parse
-from django.http import HttpResponseRedirect
-
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
+
 
 from .forms import CreateForm
 from .models import Post
@@ -28,7 +27,7 @@ def create(request):
         form = CreateForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             obj = form.save()
-            return HttpResponseRedirect(obj.get_absolute_url())
+            return redirect(obj.get_absolute_url())
     else:
         form = CreateForm()
     context = {"form": form}
@@ -42,18 +41,25 @@ def detail(request, id=None):
     return render(request, 'blog/detail.html', context)
 
 
-def update(request, id=None):
-    obj = get_object_or_404(Post, id=id)
-    form = CreateForm(request.POST or None, request.FILES or None, obj=obj)
+def edit(request, id=None):
+    instance = get_object_or_404(Post, id=id)
+    form = CreateForm(request.POST or None, instance=instance)
     if form.is_valid():
-        obj = form.save(commit=False)
-        obj.save()
-        return HttpResponseRedirect(obj.get_absolute_url())
-    context = {"title": obj.title, "obj": obj, "form": form}
-    return render(request, "blog/detail.html", context)
+        instance = form.save(commit=False)
+        instance.save()
+        return redirect(instance.get_absolute_url())
+    context = {'title': instance.title, 'instance': instance, 'form': form}
+    # obj_var = get_object_or_404(Post, id=id)
+    # form = CreateForm(request.POST or None, request.FILES or None, obj_var=obj_var)
+    # if form.is_valid():
+    #     obj_var = form.save(commit=False)
+    #     obj_var.save()
+    #     return redirect(obj_var.get_absolute_url())
+    # context = {"title": obj_var.title, "obj_var": obj_var, "form": form}
+    return render(request, "blog/create.html", context)
 
 
-def delete(request):
+def delete(request, id=None):
     obj = get_object_or_404(Post, id=id)
     obj.delete()
     return redirect('blog:index')
