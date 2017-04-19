@@ -1,14 +1,6 @@
 """Django settings for gentle project."""
 import os
 
-
-# from django.conf import settings
-#
-#
-# AUTHOR = getattr(settings, 'GENTLE_LINUX', 'Gentle Linux')
-
-
-
 DEBUG = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +20,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -38,7 +29,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'gentle.urls'
 
@@ -58,7 +48,6 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'gentle.wsgi.application'
 
 DATABASES = {
@@ -67,7 +56,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'matz.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -87,8 +75,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
@@ -98,9 +84,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "deployment/static")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'deployment/static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "deployment/media")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'deployment/media')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
