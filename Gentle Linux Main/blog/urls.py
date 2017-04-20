@@ -1,11 +1,15 @@
 from django.conf.urls import url
 
+
 from . import views
+from .views import *
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^(?P<id>\d+)/$', views.detail, name='detail'),
-    url(r'^create/$', views.create, name='create'),
-    url(r'^(?P<id>\d+)/edit/$', views.update, name='update'),
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^(?P<id>\d+)/$', DetailView.as_view(), name='detail'),
+    url(r'^create/$', CreateView.as_view(), name='create'),
+    # url(r'^(?P<id>\d+)/edit/$', EditView.as_view(), name='update'),
+    url(r'^(?P<id>\d+)/edit/$', views.edit, name='update'),
     url(r'^(?P<id>\d+)/delete/$', views.delete, name='delete'),
 ]
+#

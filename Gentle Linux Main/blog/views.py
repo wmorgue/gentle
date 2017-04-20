@@ -1,45 +1,77 @@
 import urllib.parse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import View
 
 
 from .forms import CreateForm
 from .models import Post
 
 
-def index(request):
-    queryset_list = Post.objects.active()
-    paginator = Paginator(queryset_list, 3)
-    page_var = "p"
-    page = request.GET.get(page_var)
-    try:
-        queryset = paginator.page(page)
-    except PageNotAnInteger:
-        queryset = paginator.page(1)
-    except EmptyPage:
-        queryset = paginator.page(paginator.num_pages)
-    context = {'page_var': page_var, 'object_list': queryset}
-    return render(request, 'blog/index.html', context)
+class IndexView(View):
+    """Пагинация страница."""
+    @staticmethod
+    def get(request, template='blog/index.html'):
+        queryset_list = Post.objects.active()
+        paginator = Paginator(queryset_list, 3)
+        page_var = "p"
+        page = request.GET.get(page_var)
+        try:
+            queryset = paginator.page(page)
+        except PageNotAnInteger:
+            queryset = paginator.page(1)
+        except EmptyPage:
+            queryset = paginator.page(paginator.num_pages)
+        context = {'page_var': page_var, 'object_list': queryset}
+        return render(request, template, context)
 
 
-def create(request):
-    if request.method == 'POST':
-        form = CreateForm(request.POST or None, request.FILES or None)
+class CreateView(View):
+    success_url = 'blog/index.html'
+    template = 'blog/create.html'
+    form_class = CreateForm
+
+    def get(self, request):
+        form = self.form_class()
+        context = {'form': form}
+        return render(request, self.template, context)
+
+    def post(self, request):
+        form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            obj = form.save()
-            return redirect(obj.get_absolute_url())
-    else:
-        form = CreateForm()
-    context = {"form": form}
-    return render(request, 'blog/create.html', context)
+            form.save()
+            return redirect(self.success_url)
+        context = {'form': form}
+        return render(request, self.template, context)
 
 
-def detail(request, id=None):
-    obj = get_object_or_404(Post, id=id)
-    share_string = urllib.parse.quote_plus(obj.text)
-    context = {'obj': obj, 'share_string': share_string}
-    return render(request, 'blog/detail.html', context)
+class DetailView(View):
+    @staticmethod
+    def get(request, template='blog/detail.html', id=None):
+        obj = get_object_or_404(Post, id=id)
+        share_string = urllib.parse.quote_plus(obj.text)
+        context = {'obj': obj, 'share_string': share_string}
+        return render(request, template, context)
 
+#Пока не доходит, как сделать с get_abs_url :)
+# class EditView(View):
+#     template = 'blog/create.html'
+#     form_class = CreateForm
+#
+#     def get(self, request):
+#         form = self.form_class
+#         context = {'form': form}
+#         return redner(request, self.template, context)
+#
+#     def post(self, request, id=None):
+#         instance = get_object_or_404(Post, id=id)
+#         form = self.form_class(instance)
+#         if form.is_valid():
+#             instance = form.save()
+#             instance.save()
+#             return redirect('blog/index.html')
+#         context = {'instance': instance, 'form': form}
+#         return render(request, 'blog/index.html', context)
 
 def edit(request, id=None):
     instance = get_object_or_404(Post, id=id)
@@ -49,13 +81,6 @@ def edit(request, id=None):
         instance.save()
         return redirect(instance.get_absolute_url())
     context = {'title': instance.title, 'instance': instance, 'form': form}
-    # obj_var = get_object_or_404(Post, id=id)
-    # form = CreateForm(request.POST or None, request.FILES or None, obj_var=obj_var)
-    # if form.is_valid():
-    #     obj_var = form.save(commit=False)
-    #     obj_var.save()
-    #     return redirect(obj_var.get_absolute_url())
-    # context = {"title": obj_var.title, "obj_var": obj_var, "form": form}
     return render(request, "blog/create.html", context)
 
 
