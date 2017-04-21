@@ -1,7 +1,7 @@
 import urllib.parse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import View
+from django.views.generic import View, DeleteView
 
 
 from .forms import CreateForm
@@ -9,7 +9,7 @@ from .models import Post
 
 
 class IndexView(View):
-    """Пагинация страница."""
+    """Simple page pagination."""
     @staticmethod
     def get(request, template='blog/index.html'):
         queryset_list = Post.objects.active()
@@ -53,6 +53,7 @@ class DetailView(View):
         context = {'obj': obj, 'share_string': share_string}
         return render(request, template, context)
 
+
 #Пока не доходит, как сделать с get_abs_url :)
 # class EditView(View):
 #     template = 'blog/create.html'
@@ -69,9 +70,9 @@ class DetailView(View):
 #         if form.is_valid():
 #             instance = form.save()
 #             instance.save()
-#             return redirect('blog/index.html')
+#             return redirect(self.template)
 #         context = {'instance': instance, 'form': form}
-#         return render(request, 'blog/index.html', context)
+#         return render(request, template, context)
 
 def edit(request, id=None):
     instance = get_object_or_404(Post, id=id)
@@ -82,6 +83,15 @@ def edit(request, id=None):
         return redirect(instance.get_absolute_url())
     context = {'title': instance.title, 'instance': instance, 'form': form}
     return render(request, "blog/create.html", context)
+
+# class PostDelete(DeleteView):
+#     model = Post
+#     id=None
+#     success_url = 'blog:index'
+#     def delete(self, request):
+#         obj = get_object_or_404(self.model, self.id)
+#         obj.delete()
+#         return redirect(self.success_url)
 
 
 def delete(request, id=None):
