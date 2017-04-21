@@ -10,7 +10,7 @@ class CreateForm(forms.ModelForm):
     А так же отмена публикации - draft.
     Добавляется во вьюху в виде функции и не только.
     Форму можно сделать во вьюхе, а не этим отдельным файлом."""
-    content = forms.CharField(widget=PagedownWidget)
+    text = forms.CharField(widget=PagedownWidget)
     publish = forms.DateField(widget=forms.SelectDateWidget)
     class Meta:
         model = Post
