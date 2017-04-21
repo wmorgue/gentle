@@ -1,10 +1,12 @@
 {% extends "gentle/base.html" %}
 {% load static %}
 {% block title %}New Post{% endblock %}
+{% block extra %}
+  {{ form.media }}
+{% endblock extra %}
 {% block main %}
   <div id="noted">
-    <div class="container">
-      <div class="row centered">
+    <div class="centered col-sm-6 col-sm-offset-3">
         <h2>Create new post here</h2>
         <div class="form-wrapper">
             <form class="" action="" method="POST" enctype="multipart/form-data">
@@ -15,5 +17,4 @@
           </div>
         </div>
       </div>
-    </div>
 {% endblock %}
