@@ -17,7 +17,7 @@
     {% if obj.image %}
       <img src="{{ obj.image.url }}" alt="{{ image.url }}" class="img-rounded">
     {% endif %}
-      <h3>{{ obj.title }}</h3>
+      <h1>{{ obj.title }}</h1>
       <small>{% if obj.draft %}
         <span style="color:#ff1493;">Draft </span>{% endif %}{{ obj.publish }}
       </small>
@@ -27,7 +27,7 @@
       <ul class="list-group">
           <li class="list-group-item">
               <i class="fa fa-user fa-fw" aria-hidden="true"></i>
-              {{ obj.author }}
+              Written by {{ obj.author }}
           </li>
           <li class="list-group-item">
               <i class="fa fa-music fa-fw" aria-hidden="true"></i>

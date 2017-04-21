@@ -4,7 +4,7 @@
 {% block main %}
 <div id="noted">
   {% for obj in object_list %}
-      <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
+      <h1><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h1>
       <small>{{ obj.publish }}</small>
       <ul class="list-group">
           <li class="list-group-item">
@@ -21,6 +21,7 @@
           </li>
       </ul>
   {% endfor %}
+
     <div class="pagination">
       <span class="step-links">
         {% if object_list.has_previous %}
