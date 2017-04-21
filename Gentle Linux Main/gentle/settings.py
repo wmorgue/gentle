@@ -10,8 +10,10 @@ SECRET_KEY = '&(gj2kg&1ourjpv4d3my_3wn0&te1^$d9b$g8iho*h-iant5ai'
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 INSTALLED_APPS = [
-
+    # local app
     'blog',
+    # third party
+    'pagedown',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

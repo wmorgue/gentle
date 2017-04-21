@@ -1,6 +1,7 @@
 from django import forms
 
 
+from pagedown.widgets import PagedownWidget
 from .models import Post
 
 
@@ -9,6 +10,8 @@ class CreateForm(forms.ModelForm):
     А так же отмена публикации - draft.
     Добавляется во вьюху в виде функции и не только.
     Форму можно сделать во вьюхе, а не этим отдельным файлом."""
+    content = forms.CharField(widget=PagedownWidget)
+    publish = forms.DateField(widget=forms.SelectDateWidget)
     class Meta:
         model = Post
         fields = ['author', 'title', 'image', 'text','draft', 'publish']
