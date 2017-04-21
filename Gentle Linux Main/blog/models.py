@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class PostManager(models.Manager):
     """Simple PostManager for publish__lte.
-    Look views def index for more detail."""
+    Look IndexView (queryset_list = Post.objects.active) for more detail."""
 
     def active(self):
         return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
@@ -30,7 +30,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:detail', kwargs={'id': self.id})
+        return reverse('blog:detail', args=[str(self.id)])
 
     # def upload_location(instance, filename):
     #     return "%s/%s" %(instance.id, filename)

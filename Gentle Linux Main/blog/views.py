@@ -1,7 +1,7 @@
 import urllib.parse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import View, DeleteView
+from django.views.generic import View
 
 
 from .forms import CreateForm
@@ -27,10 +27,8 @@ class IndexView(View):
 
 
 class CreateView(View):
-    success_url = 'blog/index.html'
     template = 'blog/create.html'
     form_class = CreateForm
-
     def get(self, request):
         form = self.form_class()
         context = {'form': form}
@@ -39,8 +37,8 @@ class CreateView(View):
     def post(self, request):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect(self.success_url)
+            obj = form.save()
+            return redirect(obj.get_absolute_url())
         context = {'form': form}
         return render(request, self.template, context)
 
