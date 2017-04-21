@@ -20,24 +20,12 @@
 </div>
 {% include "gentle/footer.html" %}
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) and Markdown min.js-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+and Marked.min.js for support Marked-->
 <script src="{% static "js/jquery.min.js" %}"></script>
 <script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/marked.min.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".detail-text").each(function(){
-      var content = $(this).text()
-      console.log(content)
-      var markdown = marked(content)
-      console.log(markdown)
-      $(this).html(markdown)
-    })
-      $("#detail").each(function () {
-          $(this).addClass("img-responsive")
-      })
-  })
-</script>
 </body>
 </html>
