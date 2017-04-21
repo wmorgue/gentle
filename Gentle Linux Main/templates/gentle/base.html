@@ -10,6 +10,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
     <![endif]-->
+
 {% block extra %}{% endblock extra %}
 </head>
 <body>
@@ -33,6 +34,9 @@
       console.log(markdown)
       $(this).html(markdown)
     })
+      $("#detail").each(function () {
+          $(this).addClass("img-responsive")
+      })
   })
 </script>
 </body>

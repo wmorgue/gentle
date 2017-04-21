@@ -7,35 +7,19 @@
     {% if obj.image %}
       <img src="{{ obj.image.url }}" alt="{{ image.url }}" class="img-rounded">
     {% endif %}
-      <h1>{{ obj.title }}</h1>
-      <small>{% if obj.draft %}
-        <span style="color:#ff1493;">Draft </span>{% endif %}
-      </small>
-      <div class="social">
-        {{ obj.publish }}
-        <a href="https://twitter.com/home?status={{ obj.title|truncatechars:10|urify }}%20{{ ruquest.build_absolute_uri }}" target="_blank">Twitter</a>
-      </div>
-      <div class="detail-wrapper">
-        <h4>Written by {{ obj.author}}</h4>
-      </div>
-      <div class="detail-text">
-        <h2>{{ obj.text }}</h2>
-      </div>
-      <!--
-      <ul class="list-group">
-          <li class="list-group-item">
-              <i class="fa fa-user fa-fw" aria-hidden="true"></i>
-              Written by {{ obj.author }}
-          </li>
-          <li class="list-group-item">
-              <i class="fa fa-music fa-fw" aria-hidden="true"></i>
-              {{ obj.title }}
-          </li>
-          <li class="list-group-item">
-              <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>
-              {{ obj.text }}
-          </li>
-      </ul>
-    -->
+    <h1>{{ obj.title }}</h1>
+    <small>{% if obj.draft %}
+      <span style="color:#ff1493;">Draft </span>{% endif %}
+    </small>
+    <div class="social">
+      {{ obj.publish }}
+      <a href="https://twitter.com/home?status={{ obj.title|truncatechars:10|urify }}%20{{ ruquest.build_absolute_uri }}" target="_blank">Twitter</a>
+    </div>
+    <div class="detail-wrapper">
+      <h4>Written by {{ obj.author}}</h4>
+    </div>
+    <div class="detail-text">
+      <h2>{{ obj.text }}</h2>
+    </div>
   </div>
 {% endblock main %}
