@@ -3,9 +3,10 @@ Simple yet powerful and really beautiful application for managing a blog within 
 ### Features
 1.  Three beauty page's: Home, About and Blog
 2.  CRUD Blog
-3.  All auth
-4.  Comment
-5.  Any features in next time
+3.  Any features in next time
+
+### Overview
+![Gentle](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/Gentle%20Linux%20Main/gentle-fullpage.png)
 
 ### Requirements
 ```
