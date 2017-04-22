@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     # local app
     'blog',
     # third party
+    'jet',
     'pagedown',
     'crispy_forms',
     'django.contrib.admin',

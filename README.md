@@ -6,7 +6,9 @@ Simple yet powerful and really beautiful application for managing a blog within 
 3.  Any features in next time
 
 ### Overview
-![Gentle](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/Gentle%20Linux%20Main/gentle-fullpage.png)
+![Gentle](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/gentle.png)
+![Jet Admin](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/jet_admin.png)
+
 
 ### Requirements
 ```
