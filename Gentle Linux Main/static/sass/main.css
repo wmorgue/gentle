@@ -112,8 +112,11 @@ hr {
     font-size: 20px; }
 
 #noted {
-  padding-top: 100px;
+  padding-top: 10%;
   padding-bottom: 50px; }
+
+#paginator {
+  padding-top: 15px; }
 
 #detail {
   padding-top: 100px;

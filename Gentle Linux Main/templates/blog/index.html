@@ -2,35 +2,40 @@
 {% load static %}
 {% block title %}Blog{% endblock %}
 {% block main %}
-<div id="noted">
-  {% for obj in object_list %}
-      <h1><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h1>
-      <small>{{ obj.publish }}</small>
-      <ul class="list-group">
-          <li class="list-group-item">
+  <div id="noted">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      {% for obj in object_list %}
+        <h1><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h1>
+        <small>{{ obj.publish }}</small>
+          <ul class="list-group">
+            <li class="list-group-item">
               <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
               {{ obj.author }}
-          </li>
-          <li class="list-group-item">
+            </li>
+            <li class="list-group-item">
               <i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>
               {{ obj.title }}
-          <li class="detail-text">
+            <li class="detail-text">
               {{ obj.text|truncatechars:30 }}
-          </li>
-      </ul>
-  {% endfor %}
-
-    <div class="pagination">
-      <span class="step-links">
-        {% if object_list.has_previous %}
-          <a href="?{{ page_var }}={{ object_list.previous_page_number }}">Previous</a>
-        {% endif %}
-      </span>
-        <span class="current">Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-        {% if object_list.has_next %}
-          <a href="?{{ page_var }}={{ object_list.next_page_number }}">Next</a>
-        {% endif %}
-        </span>
+            </li>
+            </ul>
+        {% endfor %}
+        <div id="paginator">
+          <nav aria-label="paginator-page">
+            <ul class="pager">
+              {% if object_list.has_previous %}
+              <li><a href="?{{ page_var }}={{ object_list.previous_page_number }}">Previous</a></li>
+              {% endif %}
+              <li>Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}</li>
+              {% if object_list.has_next %}
+              <li><a href="?{{ page_var }}={{ object_list.next_page_number }}">Next</a></li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 {% endblock %}
