@@ -6,7 +6,6 @@ from django.utils import timezone
 class PostManager(models.Manager):
     """Simple PostManager for publish__lte.
     Look IndexView (queryset_list = Post.objects.active) for more detail."""
-
     def active(self):
         return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
 

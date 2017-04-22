@@ -52,26 +52,6 @@ class DetailView(View):
         return render(request, template, context)
 
 
-#Пока не доходит, как сделать с get_abs_url :)
-# class EditView(View):
-#     template = 'blog/create.html'
-#     form_class = CreateForm
-#
-#     def get(self, request):
-#         form = self.form_class
-#         context = {'form': form}
-#         return redner(request, self.template, context)
-#
-#     def post(self, request, id=None):
-#         instance = get_object_or_404(Post, id=id)
-#         form = self.form_class(instance)
-#         if form.is_valid():
-#             instance = form.save()
-#             instance.save()
-#             return redirect(self.template)
-#         context = {'instance': instance, 'form': form}
-#         return render(request, template, context)
-
 def edit(request, id=None):
     instance = get_object_or_404(Post, id=id)
     form = CreateForm(request.POST or None, instance=instance)
@@ -81,15 +61,6 @@ def edit(request, id=None):
         return redirect(instance.get_absolute_url())
     context = {'title': instance.title, 'instance': instance, 'form': form}
     return render(request, "blog/create.html", context)
-
-# class PostDelete(DeleteView):
-#     model = Post
-#     id=None
-#     success_url = 'blog:index'
-#     def delete(self, request):
-#         obj = get_object_or_404(self.model, self.id)
-#         obj.delete()
-#         return redirect(self.success_url)
 
 
 def delete(request, id=None):
