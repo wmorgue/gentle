@@ -1,12 +1,15 @@
 ## Django Gentle Linux Blog
-Simple yet powerful and really beautiful application for managing a blog within your   Django Web site.Beautiful blog for all.
+###### Simple yet powerful and really beautiful application for managing a blog within your   Django Web site.Beautiful blog for all.
 ### Features
-1.  Three beauty page's: Home, About and Blog
-2.  CRUD Blog
-3.  Any features in next time
+1. Three beauty page's: Home, About and Blog
+2. CRUD Blog
+3. Registration, login, etc.
+4. Any features in next time.
 
 ### Overview
 ![Gentle](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/gentle.png)
+==================
+##### Custom Django Admin
 ![Jet Admin](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/jet_admin.png)
 
 
@@ -22,7 +25,7 @@ $ git clone https://github.com/BORN2LOSE/gentle.git
 $ cd gentle
 $ pip install -r requirements.txt
 $ python manage.py runserver
-$ open a new tab and write 127.0.0.1:8000
+$ Open a new tab and write 127.0.0.1:8000
 ```
 ### What's next
 I don't know, but you have a chance create pull request :D
