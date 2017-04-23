@@ -4,6 +4,17 @@
 {% block main %}
   <div id="noted">
     <div class="row">
+    
+      <div class="col-lg-8 col-md-offset-2">
+        <div class="input-group">
+          <form method="GET" action="">
+            <input type="text" class="form-control" name="q" placeholder="Search for..." value="{{ request.GET.q }}">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">Go!</button>
+            </span>
+        </div>
+      </div>    
+    
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
       {% for obj in object_list %}
@@ -30,7 +41,7 @@
               {% endif %}
               <li>Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}</li>
               {% if object_list.has_next %}
-              <li><a href="?{{ page_var }}={{ object_list.next_page_number }}">Next</a></li>
+              <li><a href="?{{ page_var }}={{ object_list.next_page_number }}&q={{ request.GET.q }}">Next</a></li>
               {% endif %}
             </ul>
           </nav>

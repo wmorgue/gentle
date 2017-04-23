@@ -3,16 +3,17 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 
-
 from .forms import CreateForm
 from .models import Post
-
 
 class IndexView(View):
     """Simple page pagination."""
     @staticmethod
     def get(request, template='blog/index.html'):
         queryset_list = Post.objects.active()
+        query = request.GET.get("q")
+        if query:
+            queryset_list = queryset_list.filter(title__icontains=query)
         paginator = Paginator(queryset_list, 3)
         page_var = "p"
         page = request.GET.get(page_var)
