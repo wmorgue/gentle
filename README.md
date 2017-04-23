@@ -7,10 +7,10 @@
 4. Any features in next time.
 
 ### Overview
-![Gentle](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/gentle.png)
+![Gentle](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/Screenshot/gentle.png)
 ==================
 ##### Custom Django Admin
-![Jet Admin](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/jet_admin.png)
+![Jet Admin](https://raw.githubusercontent.com/BORN2LOSE/gentle/develop/Screenshot/jet_admin.png)
 
 
 ### Requirements
