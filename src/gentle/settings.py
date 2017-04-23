@@ -17,11 +17,15 @@ INSTALLED_APPS = [
     'pagedown',
     'ckeditor',
     'ckeditor_uploader',
+    'bootstrapform',
+    # 'material',
+    # 'material.frontend',
     # The following apps are required All auth:
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.github',
     # django default
     'django.contrib.admin',
     'django.contrib.sites',
