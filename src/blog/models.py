@@ -15,7 +15,8 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=150)
     # slug = models.SlugField(unique=True ,max_length=100)
-    image = models.ImageField(null=True, blank=True, height_field="height_field", width_field="width_field")
+    image = models.ImageField(null=True, blank=True,
+        height_field="height_field", width_field="width_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     text = models.TextField()
@@ -24,6 +25,10 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     objects = PostManager()
+    class Meta():
+        """Сортирует по времени.
+        Вверху всегда свежие записи."""
+        ordering = ['-created', '-updated']
 
     def __str__(self):
         return self.title
@@ -34,7 +39,3 @@ class Post(models.Model):
     # def upload_location(instance, filename):
     #     return "%s/%s" %(instance.id, filename)
 
-    class Meta():
-        """Сортирует по времени.
-        Вверху всегда свежие записи."""
-        ordering = ['-created', '-updated']

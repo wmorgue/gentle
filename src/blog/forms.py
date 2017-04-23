@@ -1,8 +1,10 @@
 from django import forms
 
-
-from pagedown.widgets import PagedownWidget
+# local Django model
 from .models import Post
+
+# third-party
+from pagedown.widgets import PagedownWidget
 
 
 class CreateForm(forms.ModelForm):

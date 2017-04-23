@@ -15,6 +15,8 @@ INSTALLED_APPS = [
     # third party
     'jet',
     'pagedown',
+    'ckeditor',
+    'ckeditor_uploader',
     # The following apps are required All auth:
     'allauth',
     'allauth.account',
@@ -109,3 +111,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'deployment/media')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+# Django-ckeditor setup
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = 'pillow'

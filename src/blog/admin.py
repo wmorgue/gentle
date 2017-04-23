@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+# local Model
 from .models import Post
 
 
