@@ -11,12 +11,15 @@
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-right navbar-nav">
             {% with request.resolver_match as url_info %}
-                <li {% ifequal url_info.view_name 'home' %} class="active" {% endifequal %}><a href="/">Home</a>
+                <li {% ifequal url_info.view_name 'home' %} class="active"
+                {% endifequal %}><a href="/">Home</a>
                 </li>
-                <li {% ifequal url_info.namespace 'blog' %} class="active" {% endifequal %}><a
-                        href="{% url 'blog:index' %}">Blog</a></li>
-                <li {% ifequal url_info.view_name 'about' %} class="active" {% endifequal %} ><a
-                        href="{% url 'about' %}">About</a></li>
+                <li {% ifequal url_info.namespace 'blog' %} class="active"
+                {% endifequal %}><a href="{% url 'blog:index' %}">Blog</a>
+                </li>
+                <li {% ifequal url_info.view_name 'about' %} class="active"
+                {% endifequal %} ><a href="{% url 'about' %}">About</a>
+                </li>
             {% endwith %}
         </ul>
     </div>
